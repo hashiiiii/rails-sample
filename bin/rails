@@ -1,4 +1,21 @@
 #!/usr/bin/env ruby
+# このスクリプトをRuby で実行するように指定します。シバン（shebang）と呼ばれる記述で、
+# 環境変数PATHから ruby コマンドを探して、このスクリプトを実行します。
+
 APP_PATH = File.expand_path("../config/application", __dir__)
+# アプリケーションの設定ファイルパスを定数APP_PATHに設定します。
+# __dir__ はこのスクリプト自身が存在するディレクトリ（bin/）を指します。
+# そこから相対的に "../config/application" を指定し、絶対パスに変換しています。
+# 結果として APP_PATH は Rails アプリケーションの config/application.rb を指します。
+
 require_relative "../config/boot"
+# config/boot.rb ファイルを読み込みます。
+# このファイルはBundlerの設定やgemの環境を整えるために必要です。
+
 require "rails/commands"
+# Rails のコマンド機能を提供するライブラリを読み込みます。
+# server、console、generate などの Rails コマンドを実行できるようにします。
+# この行でRailsコマンドの処理が開始されます。
+
+# この rails スクリプトは、Rails アプリケーションを起動するためのエントリーポイントです。
+# gem で install した　 rails コマンドとは別のものです。
